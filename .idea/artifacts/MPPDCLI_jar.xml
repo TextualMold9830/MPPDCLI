@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="MPPDCLI:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/MPPDCLI_jar</output-path>
+    <root id="archive" name="MPPDCLI.jar">
+      <element id="module-output" name="MPPDCLI" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjdk/nashorn/nashorn-core/15.4/nashorn-core-15.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/ow2/asm/asm/7.3.1/asm-7.3.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/ow2/asm/asm-commons/7.3.1/asm-commons-7.3.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/ow2/asm/asm-analysis/7.3.1/asm-analysis-7.3.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/ow2/asm/asm-tree/7.3.1/asm-tree-7.3.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/ow2/asm/asm-util/7.3.1/asm-util-7.3.1.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
