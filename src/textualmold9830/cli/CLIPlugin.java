@@ -15,6 +15,6 @@ public class CLIPlugin implements Plugin {
     public void initialize() {
         instance = this;
         CommandManager.initCommands();
-        Thread.ofPlatform().start(new ScanThread());
+        new Thread(new ScanThread()).start();
     }
 }
