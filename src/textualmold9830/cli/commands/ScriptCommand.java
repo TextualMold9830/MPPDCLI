@@ -11,6 +11,7 @@ import javax.script.Bindings;
 import javax.script.ScriptContext;
 import javax.script.ScriptEngine;
 import javax.script.ScriptException;
+import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.nio.file.Files;
@@ -42,7 +43,7 @@ public class ScriptCommand implements Command {
         String code;
         if (args[0] != null) {
             try {
-                code = Files.readString(Path.of(URI.create(String.valueOf(PluginUtils.getConfigDirectory(CLIPlugin.instance))) + "/" + args[0]));
+                code = Files.readString(Path.of(String.valueOf(PluginUtils.getConfigDirectory(CLIPlugin.instance)), args[0]));
 
             } catch (IOException e) {
                 System.out.println("File not found: " + Path.of(URI.create(String.valueOf(PluginUtils.getConfigDirectory(CLIPlugin.instance))) + "/" + args[0]));

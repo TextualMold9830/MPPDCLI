@@ -36,15 +36,18 @@ public class ItemCommand implements Command {
 
     @Override
     public void run(String[] args) {
-        String itemClass = "";
+        String itemClass;
         int pos;
         if (args[0] != null) {
             itemClass = classMap.get(args[0]);
+            if (itemClass == null) {
+                itemClass = args[0];
+            }
         } else {
             System.out.println("an item type is needed");
             return;
         }
-        if (StringToInt.isInt(args[1])){
+        if (args[1] != null && StringToInt.isInt(args[1])){
             pos = Integer.parseInt(args[1]);
         } else {
             System.out.println("Invalid position");
@@ -52,8 +55,11 @@ public class ItemCommand implements Command {
         }
         Item item;
         try {
-            Class<Item> clazz = (Class<Item>) Class.forName(itemClass);
+            Class<? extends Item> clazz = (Class<? extends Item>) Class.forName(itemClass);
             item = clazz.getDeclaredConstructor().newInstance();
+            if (StringToInt.isInt(args[2])){
+                item.upgrade(Integer.parseInt(args[2]));
+            }
         } catch (ClassNotFoundException | NoSuchMethodException | InstantiationException | IllegalAccessException |
                  InvocationTargetException e) {
             System.out.println("Invalid item class name");
