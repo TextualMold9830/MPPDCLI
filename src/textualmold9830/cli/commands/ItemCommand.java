@@ -57,7 +57,7 @@ public class ItemCommand implements Command {
         try {
             Class<? extends Item> clazz = (Class<? extends Item>) Class.forName(itemClass);
             item = clazz.getDeclaredConstructor().newInstance();
-            if (StringToInt.isInt(args[2])){
+            if (args.length > 2 && StringToInt.isInt(args[2])){
                 item.upgrade(Integer.parseInt(args[2]));
             }
         } catch (ClassNotFoundException | NoSuchMethodException | InstantiationException | IllegalAccessException |

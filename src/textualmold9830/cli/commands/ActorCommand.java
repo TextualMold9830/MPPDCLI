@@ -1,7 +1,9 @@
 package textualmold9830.cli.commands;
 
+import com.watabou.pixeldungeon.Dungeon;
 import com.watabou.pixeldungeon.actors.Actor;
 import com.watabou.pixeldungeon.actors.Char;
+import com.watabou.pixeldungeon.actors.hero.Hero;
 import com.watabou.pixeldungeon.levels.Level;
 import textualmold9830.cli.function.ListActors;
 import textualmold9830.cli.util.ActorUtil;
@@ -70,6 +72,9 @@ public class ActorCommand implements Command{
                         if(StringToInt.isInt(args[2])){
                             character.pos = StringToInt.optionalInt(args[2], character.pos);
                             character.move(character.pos);
+                            if (character instanceof Hero) {
+                                Dungeon.observe((Hero) character);
+                            }
                             System.out.println("Set position of "+ character.name + " to: " + character.pos);
                         } else {
                             if (args[2] == null) {

@@ -22,7 +22,6 @@ public class CLIPlugin implements Plugin {
         String[] commands = PluginUtils.getConfigData(this).split("\n");
         for (int i = 0; i < commands.length; i++) {
             if (!commands[i].isBlank()){
-
                 CommandManager.executeFromString(commands[i]);
             }
         }
